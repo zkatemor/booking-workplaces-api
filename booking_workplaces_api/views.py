@@ -68,7 +68,6 @@ class WorkplaceIndexView(APIView):
         try:
             workplace = Workplace.objects.get(id=pk)
             workplace.delete()
-            workplace.save()
             return Response(status=status.HTTP_204_NO_CONTENT)
         except Workplace.DoesNotExist as e:
             return JsonResponse({"error": "Not found workplace"}, status=404)
