@@ -128,3 +128,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'booking_workplaces_api.auth.BasicAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'booking_workplaces_api.auth.IsAuthenticated',
+    ]
+}
