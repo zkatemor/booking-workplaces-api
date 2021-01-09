@@ -1,4 +1,5 @@
 import dateutil.parser
+from django.db.models import Q
 
 from django.http import JsonResponse
 from django.utils import timezone
@@ -41,8 +42,8 @@ class WorkplaceView(APIView):
                 datetime_from = dateutil.parser.parse(data.get("datetime_from"))
                 datetime_to = dateutil.parser.parse(data.get("datetime_to"))
 
-                booking = BookingWorkplace.objects.filter(datetime_from__range=(datetime_from, datetime_to),
-                                                          datetime_to__range=(datetime_from, datetime_to))
+                booking = BookingWorkplace.objects.filter(Q(datetime_to__range=(datetime_from, datetime_to)) |
+                                                          Q(datetime_from__range=(datetime_from, datetime_to)))
 
                 workplaces = Workplace.objects.exclude(pk__in=set(list(booking.values_list('workplace', flat=True))))
                 serializer = [WorkplaceSerializer(i).data for i in workplaces]
@@ -115,8 +116,8 @@ class BookingView(APIView):
 
             # check if datetime is valid
             if timezone.now() <= datetime_from < datetime_to:
-                booking = BookingWorkplace.objects.filter(datetime_from__range=(datetime_from, datetime_to),
-                                                          datetime_to__range=(datetime_from, datetime_to))
+                booking = BookingWorkplace.objects.filter(Q(datetime_to__range=(datetime_from, datetime_to)) |
+                                                          Q(datetime_from__range=(datetime_from, datetime_to)))
 
                 workplace_ids = set(list(booking.values_list('workplace', flat=True)))
                 # check if workplace is not free
