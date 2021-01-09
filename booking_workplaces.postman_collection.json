@@ -1,0 +1,261 @@
+{
+	"id": "41c44d7b-771d-461c-97fc-90b33f4d41cb",
+	"name": "booking_workplaces",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [],
+	"folders_order": [
+		"5ab8bc3e-e679-41fb-8a42-aa8a9bc5e521"
+	],
+	"protocolProfileBehavior": {},
+	"folders": [
+		{
+			"id": "5ab8bc3e-e679-41fb-8a42-aa8a9bc5e521",
+			"name": "workplaces",
+			"description": "",
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "password"
+					},
+					{
+						"key": "username",
+						"value": "user"
+					}
+				]
+			},
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ef61adf8-08cd-4d74-9b17-41e9d44cedda",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e71d72d6-d1c8-483f-bc22-24cce7e0e55f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "41c44d7b-771d-461c-97fc-90b33f4d41cb",
+			"folder": null,
+			"order": [
+				"afee2bb5-d757-4edc-9fe7-a9d32bca1bfb",
+				"ff8cd487-fc4d-4388-835b-a9c9fabbe63e",
+				"535e7f04-29b6-451c-ac90-45d9ab4a4e2b",
+				"30943c2c-b0b7-44f1-9768-d8e9c418959e",
+				"04ecefa1-3857-41b9-aa5a-d0273df6118b",
+				"fa43201e-9204-49b8-a657-cd62534e5950",
+				"fa18c0e0-57d6-433e-a81a-3a7a518b2ec8"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"requests": [
+		{
+			"id": "04ecefa1-3857-41b9-aa5a-d0273df6118b",
+			"name": "delete workplace",
+			"url": "{{booking_workplaces_host}}/api/workplaces/:id",
+			"description": "",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "DELETE",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": "6"
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "5ab8bc3e-e679-41fb-8a42-aa8a9bc5e521",
+			"headers": "",
+			"pathVariables": {
+				"id": "6"
+			}
+		},
+		{
+			"id": "30943c2c-b0b7-44f1-9768-d8e9c418959e",
+			"name": "index workplace",
+			"url": "{{booking_workplaces_host}}/api/workplaces/:id",
+			"description": "",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": "2"
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "5ab8bc3e-e679-41fb-8a42-aa8a9bc5e521",
+			"headers": "",
+			"pathVariables": {
+				"id": "2"
+			}
+		},
+		{
+			"id": "535e7f04-29b6-451c-ac90-45d9ab4a4e2b",
+			"name": "show workplaces",
+			"url": "{{booking_workplaces_host}}/api/workplaces",
+			"description": "",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "datetime_from",
+					"value": "2021-01-11T10:10:00Z",
+					"equals": true,
+					"description": null,
+					"enabled": false
+				},
+				{
+					"key": "datetime_to",
+					"value": "2021-01-12T11:10:00Z",
+					"equals": true,
+					"description": null,
+					"enabled": false
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": "5ab8bc3e-e679-41fb-8a42-aa8a9bc5e521",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "afee2bb5-d757-4edc-9fe7-a9d32bca1bfb",
+			"name": "create workplace",
+			"url": "{{booking_workplaces_host}}/api/workplaces",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": [],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "5ab8bc3e-e679-41fb-8a42-aa8a9bc5e521",
+			"rawModeData": "{\n    \"name\": \"test1\"\n}",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "fa18c0e0-57d6-433e-a81a-3a7a518b2ec8",
+			"name": "show booking by wrkp id",
+			"url": "{{booking_workplaces_host}}/api/workplaces/:id/booking",
+			"description": "",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": "1"
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "5ab8bc3e-e679-41fb-8a42-aa8a9bc5e521",
+			"headers": "",
+			"pathVariables": {
+				"id": "1"
+			}
+		},
+		{
+			"id": "fa43201e-9204-49b8-a657-cd62534e5950",
+			"name": "create booking",
+			"url": "{{booking_workplaces_host}}/api/workplaces/:id/booking",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": [],
+			"method": "POST",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": "2"
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "5ab8bc3e-e679-41fb-8a42-aa8a9bc5e521",
+			"rawModeData": "{\n    \"description\":\"description1\",\n    \"datetime_from\":\"2021-01-11T10:10:00Z\",\n    \"datetime_to\":\"2021-01-12T11:10:00Z\"\n}\n",
+			"headers": "",
+			"pathVariables": {
+				"id": "2"
+			}
+		},
+		{
+			"id": "ff8cd487-fc4d-4388-835b-a9c9fabbe63e",
+			"name": "update workplace",
+			"url": "{{booking_workplaces_host}}/api/workplaces/:id",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": [],
+			"method": "PUT",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": "2"
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "5ab8bc3e-e679-41fb-8a42-aa8a9bc5e521",
+			"rawModeData": "{\n    \"name\": \"test2\"\n}",
+			"headers": "",
+			"pathVariables": {
+				"id": "2"
+			}
+		}
+	]
+}
